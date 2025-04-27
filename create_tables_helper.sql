@@ -1,4 +1,4 @@
-DROP PROCEDURE IF EXISTS CREATE_KUNDE;
+CREATE_KUNDECREATE_KUNDECREATE_KUNDEDROP PROCEDURE IF EXISTS CREATE_KUNDE;
 DROP PROCEDURE IF EXISTS CREATE_BESTELLUNG;
 DROP PROCEDURE IF EXISTS CREATE_REZEPT_BESTELLUNG;
 DROP PROCEDURE IF EXISTS CREATE_REZEPT;
@@ -24,8 +24,6 @@ BEGIN
 		, Geburtsdatum DATE
 		, TelefonNr VARCHAR (15)
 		, Email VARCHAR (50)
-		, FOREIGN KEY (AdresseId) 
-			REFERENCES ADRESSE (AdresseId)
 	);
 END; /
 
@@ -36,9 +34,6 @@ BEGIN
 		, KundeId INT
 		, Gesamtpreis DOUBLE (10,2)
 		, Bestelldatum DATE
-		, PRIMARY KEY (BestellungId)
-		, FOREIGN KEY (KundeId) REFERENCES
-			KUNDE (KundeId)
 	);
 END; /
 
@@ -48,10 +43,6 @@ BEGIN
 		BestellungId INT NOT NULL
 		, RezeptId INT NOT NULL
 		, Menge INT
-		, FOREIGN KEY (BestellungId) REFERENCES
-			bestellung (BestellungId)
-		, FOREIGN KEY (RezeptId) REFERENCES
-			REZEPT (RezeptId)
 	);
 END; /
 
@@ -59,10 +50,10 @@ CREATE PROCEDURE CREATE_REZEPT ()
 BEGIN
 	CREATE TABLE REZEPT(
 		RezeptId INT PRIMARY KEY
-		, Titel VARCHAR (50)
-		, Beschreibung VARCHAR(max)
-		, Zubereitung VARCHAR(max)
-		, Zubereitungszeit VARCHAR (15)
+		, Titel VARCHAR(50)
+   	, Beschreibung VARCHAR (255)
+   	, Zubereitung VARCHAR (60000)
+		, Zubereitungszeit VARCHAR(15)
 		, Portionen INT
 	);
 END; /
@@ -73,10 +64,6 @@ BEGIN
 		RezeptId INT NOT NULL
 		, ZutatId INT NOT NULL
 		, Menge DOUBLE (5,2)
-		, FOREIGN KEY (RezeptId) REFERENCES
-			REZEPT (RezeptId)
-		, FOREIGN KEY (ZutatId) REFERENCES
-			ZUTAT (ZutatId)
 	);
 END; /
 
@@ -100,8 +87,6 @@ BEGIN
 		, LieferantName VARCHAR(50)
 		, TelefonNr VARCHAR(15)
 		, Email VARCHAR(50)
-		, FOREIGN KEY (AdresseId) REFERENCES
-			ADRESSE (AdresseId)
 	);
 END; /
 
@@ -115,22 +100,14 @@ BEGIN
 		, Bestand DOUBLE(4,2)
 		, Nettopreis DOUBLE(5,2)
 		, CO2AequivalentProKg DOUBLE(10,4)
-		, FOREIGN KEY (LieferantId) REFERENCES
-			LIEFERANT (LieferantId)
-		, FOREIGN KEY (NaehrstoffangabeId) REFERENCES
-			NAEHRSTOFFANGABE (NaehrstoffangabeId)
 	);
 END; /
 
 CREATE PROCEDURE CREATE_ZUTAT_BESCHRAENKUNG ()
 BEGIN
-	CREATE TABLE ZUTAT_BESTAND(
+	CREATE TABLE ZUTAT_BESCHRAENKUNG(
 		BeschraenkungId INT NOT NULL
 		, ZutatId INT NOT NULL
-		, FOREIGN KEY (BeschraenkungId) REFERENCES
-			Beschraenkung (BeschraenkungId)
-		, FOREIGN KEY (ZutatId) REFERENCES
-			ZUTAT (ZutatId)
 	);
 END; /
 
@@ -147,8 +124,6 @@ BEGIN
 	CREATE TABLE ZUTAT_ERNAEHRUNGSKATEGORIE(
 		ErnaehrungskategorieId INT NOT NULL
 		, ZutatId INT NOT NULL
-		, FOREIGN KEY (ErnaehrungskategorieId) REFERENCES
-			ERNAEHRUNGSKATEGORIE (ErnaehrungskategorieId)
 	);
 END; /
 
@@ -160,9 +135,9 @@ BEGIN
 	);
 END; /
 
-CREATE PROCEDURE CREATE_NAEHRSTOFFANGABE ()
+CREATE PROCEDURE CREATE_NAEHRSTOFFANGABE()
 BEGIN
-	CREATE TABLE NAEHRSTOFFANGABE(
+	CREATE TABLE NAEHRSTOFFANGABE (
 		NaehrstoffangabeId INT PRIMARY KEY
 		, KalorienPro100g DOUBLE(4,2)
 		, ProteinePro100g DOUBLE(4,2)
