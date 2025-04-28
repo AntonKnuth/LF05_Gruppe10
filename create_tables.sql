@@ -43,6 +43,10 @@ CREATE TABLE ADRESSE(
 	, Strasse VARCHAR(50)
 	, HausNr VARCHAR(4)
 	, Adresszusatz VARCHAR(4)
+	, OrtId INT
+);
+CREATE TABLE ORT(
+	OrtId INT PRIMARY KEY
 	, PLZ VARCHAR(10)
 	, Stadt VARCHAR(50)
 );
