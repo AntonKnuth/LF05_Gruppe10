@@ -96,7 +96,7 @@ CREATE TABLE NAEHRSTOFFANGABE (
 	, KalorienPro100g INT
 	, ProteinePro100g DOUBLE(10,2)
 	, KohlenhydratePro100g DOUBLE(10,2)
-	, ZuckerPro100g DOUBLE(102)
+	, ZuckerPro100g DOUBLE(10,2)
 	, FettPro100g DOUBLE(10,2)
 	, GesaettigteFettSaeurenPro100g DOUBLE(10,2)
 	, BallaststoffePro100g DOUBLE(10,2)
