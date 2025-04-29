@@ -217,3 +217,76 @@ VALUES
 (6, 'Frutarisch'),
 (7, 'Low Carb'),
 (8, 'Kalorienarm');
+
+INSERT IGNORE INTO ZUTAT_BESCHRAENKUNG (BeschraenkungId, ZutatId, Beschreibung) VALUES
+(1, 14, 'Schweinegelatine in Käse nicht halal'),
+(1, 43, 'Schweinebraten ist haram'),
+(1, 46, 'Schweinefilet ist haram'),
+(1, 56, 'Rindfleisch nur halal erlaubt'),
+(1, 61, 'Lammfleisch nur halal erlaubt'),
+(2, 2,  'Olivenöl kann Kreuzkontamination mit Nüssen enthalten'),
+(2, 8,  'Margarine enthält oft Milchallergene'),
+(2, 14, 'Milchallergie gegen Käse'),
+(2, 15, 'Eiallergie'),
+(2, 20, 'Schmelzkäse enthält Milch'),
+(2, 55, 'Fischallergie gegen Lachs'),
+(2, 62, 'Sojaallergie gegen Tofu'),
+(2, 63, 'Müsli enthält häufig Nüsse'),
+(3, 4,  'Zucker bei Fructoseintoleranz'),
+(3, 7,  'Apfel enthält Fructose'),
+(3, 9,  'Zitrone enthält Fructose'),
+(3, 34, 'Birne bei Fructoseintoleranz'),
+(3, 36, 'Erdbeere bei Fructoseintoleranz'),
+(3, 42, 'Mango enthält viel Fruchtzucker'),
+(3, 53, 'Kiwifrucht bei Fructoseintoleranz'),
+(3, 59, 'Himbeeren enthalten Fructose'),
+(3, 64, 'Orange bei Fructoseintoleranz'),
+(4, 1,  'Keine spezielle Beschränkung'),
+(4, 5,  'Keine spezielle Beschränkung'),
+(4, 6,  'Keine spezielle Beschränkung'),
+(4, 10, 'Keine spezielle Beschränkung'),
+(4, 12, 'Keine spezielle Beschränkung'),
+(4, 13, 'Keine spezielle Beschränkung'),
+(4, 18, 'Keine spezielle Beschränkung'),
+(4, 24, 'Keine spezielle Beschränkung'),
+(4, 28, 'Keine spezielle Beschränkung'),
+(4, 32, 'Keine spezielle Beschränkung'),
+(4, 35, 'Keine spezielle Beschränkung'),
+(4, 38, 'Keine spezielle Beschränkung'),
+(4, 39, 'Keine spezielle Beschränkung'),
+(4, 40, 'Keine spezielle Beschränkung'),
+(4, 45, 'Keine spezielle Beschränkung'),
+(4, 49, 'Keine spezielle Beschränkung'),
+(4, 52, 'Keine spezielle Beschränkung'),
+(4, 60, 'Keine spezielle Beschränkung'),
+(4, 66, 'Keine spezielle Beschränkung')
+,(4, 3, 'Keine Beschränkung')
+,(3, 11, 'Kann Fruktose enthalten')
+,(3, 16, 'Enthält Zucker')
+,(2, 17, 'Kann Senfallergene enthalten')
+,(1, 19, 'Nur halal erlaubt')
+,(4, 21, 'Keine Beschränkung')
+,(3, 22, 'Enthält Fruktose')
+,(4, 23, 'Keine Beschränkung')
+,(3, 25, 'Enthält Fruktose')
+,(4, 26, 'Keine Beschränkung')
+,(2, 27, 'Kann Milchallergene enthalten')
+,(2, 29, 'Enthält Gluten')
+,(1, 30, 'Nur halal erlaubt')
+,(4, 31, 'Keine Beschränkung')
+,(3, 33, 'Enthält Fruktose')
+,(1, 37, 'Enthält tierisches Lab (nicht halal)')
+,(2, 37, 'Kann Milchallergene enthalten')
+,(3, 41, 'Enthält Fruktose')
+,(3, 44, 'Enthält Fruchtzucker')
+,(4, 47, 'Keine Beschränkung')
+,(4, 48, 'Keine Beschränkung')
+,(4, 50, 'Keine Beschränkung')
+,(4, 51, 'Keine Beschränkung')
+,(3, 54, 'Enthält Fruktose')
+,(4, 57, 'Keine Beschränkung')
+,(2, 58, 'Kann Latex-Kreuzallergie auslösen')
+,(4, 65, 'Keine Beschränkung')
+,(2, 67, 'Kann Kiwiallergene enthalten')
+,(4, 68, 'Keine Beschränkung')
+,(2, 69, 'Enthält Fischallergene');

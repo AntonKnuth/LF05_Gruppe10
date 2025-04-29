@@ -72,6 +72,7 @@ CREATE TABLE ZUTAT(
 CREATE TABLE ZUTAT_BESCHRAENKUNG (
 	BeschraenkungId INT NOT NULL
 	, ZutatId INT NOT NULL
+	, Beschreibung VARCHAR (50)
 	, PRIMARY KEY (BeschraenkungId, ZutatId)
 );
 	
