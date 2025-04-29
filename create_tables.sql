@@ -93,12 +93,12 @@ CREATE TABLE ERNAEHRUNGSKATEGORIE(
 
 CREATE TABLE NAEHRSTOFFANGABE (
 	NaehrstoffangabeId INT PRIMARY KEY
-	, KalorienPro100g DOUBLE(4,2)
-	, ProteinePro100g DOUBLE(4,2)
-	, KohlenhydratePro100g DOUBLE(4,2)
-	, ZuckerPro100g DOUBLE(4,2)
-	, FettPro100g DOUBLE(4,2)
-	, GesaettigteFettSaeurenPro100g DOUBLE(4,2)
-	, BallaststoffePro100g DOUBLE(4,2)
-	, NatriumPro100g DOUBLE(4,2)
+	, KalorienPro100g INT
+	, ProteinePro100g DOUBLE(10,2)
+	, KohlenhydratePro100g DOUBLE(10,2)
+	, ZuckerPro100g DOUBLE(10,2)
+	, FettPro100g DOUBLE(10,2)
+	, GesaettigteFettSaeurenPro100g DOUBLE(10,2)
+	, BallaststoffePro100g DOUBLE(10,2)
+	, NatriumPro100g DOUBLE(10,2)
 );
