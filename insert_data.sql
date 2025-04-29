@@ -193,3 +193,27 @@ INSERT IGNORE INTO naehrstoffangabe (
 	(67, 1, 67, 'Kiwi', 150.00, 1.50, 0.2500),
 	(68, 3, 68, 'Brokkoli', 250.00, 2.50, 0.3000),
 	(69, 4, 69, 'Thunfisch', 150.00, 5.50, 1.2000);
+	
+INSERT IGNORE INTO beschraenkung(
+	BeschraenkungId
+	, BeschraenkungTyp
+)
+VALUES
+(1, 'Religiöse Beschränkung / Religiöser Verbot'),
+(2, 'Allergie'),
+(3, 'Unverträglichkeit/Intolleranz'),
+(4, 'Keine Beschränkung');
+
+INSERT IGNORE INTO ernaehrungskategorie(
+	ErnaehrungskategorieId
+	, ErnaehrungkategorieTyp
+)
+VALUES
+(1, 'Carnevor'),
+(2, 'Omnivor'),
+(3, 'Pescetarisch'),
+(4, 'Vegetarisch'),
+(5, 'Vegan'),
+(6, 'Frutarisch'),
+(7, 'Low Carb'),
+(8, 'Kalorienarm');
