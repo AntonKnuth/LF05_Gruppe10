@@ -290,3 +290,21 @@ INSERT IGNORE INTO ZUTAT_BESCHRAENKUNG (BeschraenkungId, ZutatId, Beschreibung) 
 ,(2, 67, 'Kann Kiwiallergene enthalten')
 ,(4, 68, 'Keine spezielle Beschränkung')
 ,(2, 69, 'Enthält Fischallergene');
+
+INSERT IGNORE INTO KUNDE (KundeId, AdresseId, Vorname, Nachname, Geburtsdatum, TelefonNr, Email) VALUES
+	(1, 4, 'Anna', 'Schneider', '1990-05-12', '01711234567', 'anna.schneider@gmail.com')
+	,(2, 7, 'Ben', 'Müller', '1985-11-03', '015778889999', 'ben.mueller@web.de')
+	,(3, 5, 'Clara', 'Meier', '1994-03-27', '01735551234', 'clara.meier@gmx.de')
+	,(4, 3, 'David', 'Fischer', '1982-09-14', '01791234567', 'david.fischer@t-online.de')
+	,(5, 6, 'Eva', 'Weber', '1998-12-01', '01511334455', 'eva.weber@outlook.de')
+	,(6, 8, 'Felix', 'Wagner', '1979-02-19', '01761112222', 'felix.wagner@hotmail.de')
+	,(7, 3, 'Greta', 'Becker', '1992-07-05', '01609998877', 'greta.becker@yahoo.de')
+	,(8, 4, 'Hannah', 'Hoffmann', '1987-08-20', '01724445566', 'hannah.hoffmann@gmail.com')
+	,(9, 5, 'Isabel', 'Richter', '1996-10-11', '01576662211', 'isabel.richter@web.de')
+	,(10, 7, 'Jonas', 'Klein', '1989-04-06', '01797776655', 'jonas.klein@t-online.de')
+	,(11, 6, 'Klara', 'Wolf', '1993-06-30', '01784443322', 'klara.wolf@outlook.de')
+	,(12, 8, 'Leon', 'Neumann', '1984-01-23', '01599990000', 'leon.neumann@gmx.de')
+	,(13, 4, 'Mia', 'Schröder', '1997-11-08', '01736665544', 'mia.schroeder@yahoo.de')
+	,(14, 5, 'Noah', 'Hartmann', '1991-03-15', '01751112233', 'noah.hartmann@t-online.de')
+	,(15, 7, 'Olivia', 'Krüger', '1980-07-19', '01665554411', 'olivia.krueger@gmail.com')
+	,(16, 6, 'Paul', 'Schulte', '1995-05-02', '01732221111', 'paul.schulte@web.de');
