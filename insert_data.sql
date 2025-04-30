@@ -42,7 +42,7 @@ VALUES
 (9, 'BioFarm GmbH', '030-1234567', 'info@biofarm.de'),
 (10, 'FruchtExpress AG', '040-9876543', 'kontakt@fruchtexpress.de'),
 (2, 'GreenFoods KG.', '0221-5554321', 'service@greenfoods.de'),
-(1, 'MeatMasters GmbH', '069-1122334', 'support@meatmasters.de');
+(1, 'BioMasters GmbH', '069-1122334', 'support@biomasters.de');
 
 INSERT IGNORE INTO naehrstoffangabe (
 	kalorien_pro_100g,
@@ -107,7 +107,6 @@ VALUES
 	(120.00, 3.00, 28.00, 18.00, 0.40, 0.10, 4.00, 0.004), -- Quinoa
 	(200.00, 5.00, 50.00, 10.00, 1.50, 0.30, 6.00, 0.005), -- Mais
 	(240.00, 12.00, 32.00, 15.00, 6.00, 2.50, 8.00, 0.006), -- Kartoffeln
-	(80.00, 0.80, 19.00, 12.00, 0.30, 0.05, 2.50, 0.002), -- Kiwifrucht
 	(70.00, 2.00, 15.00, 8.00, 0.20, 0.01, 2.00, 0.003), -- Birnen
 	(290.00, 4.50, 60.00, 4.00, 3.50, 1.00, 7.00, 0.007), -- Lachs (gegrillt)
 	(350.00, 25.00, 50.00, 10.00, 15.00, 6.00, 6.00, 0.010), -- Rindfleisch
@@ -126,236 +125,196 @@ VALUES
 	(130, 29, 0, 0, 0.6, 0.2, 0, 0.54); -- Thunfisch
 		
 	INSERT IGNORE INTO ZUTAT(
-	ZutatId
-	, LieferantId
-	, NaehrstoffangabeId
-	, Bezeichnung
-	, Bestand
-	, Nettopreis
-	, CO2AequivalentProKg)
-	VALUES
-	(1, 2, 1, 'Weizenmehl Tipo 00', 500.00, 1.20, 0.7500),
-	(2, 1, 2, 'Olivenöl', 200.00, 3.50, 8.2500),
-	(3, 3, 3, 'Hefe', 50.00, 0.99, 0.2500),
-	(4, 4, 4, 'Zucker', 1000.00, 1.80, 0.1000),
-	(5, 2, 5, 'Salz', 300.00, 0.50, 0.0500),
-	(6, 3, 6, 'Tomate', 150.00, 1.30, 0.3000),
-	(7, 1, 7, 'Apfel', 200.00, 1.00, 0.3500),
-	(8, 4, 8, 'Margarine', 250.00, 2.20, 1.0000),
-	(9, 2, 9, 'Zitrone', 100.00, 0.80, 0.2500),
-	(10, 1, 10, 'Speisestärke Maizena', 300.00, 1.00, 0.1500),
-	(11, 4, 11, 'Bourbon-Vanillezucker', 50.00, 3.00, 0.2000),
-	(12, 3, 12, 'Zimt', 100.00, 2.50, 1.0000),
-	(13, 1, 13, 'Magerquark', 150.00, 1.00, 0.1500),
-	(14, 2, 14, 'Käse', 200.00, 4.00, 5.5000),
-	(15, 4, 15, 'Eier', 120.00, 2.80, 0.3500),
-	(16, 3, 16, 'Ketchup', 500.00, 1.70, 1.2000),
-	(17, 2, 17, 'Senf', 50.00, 1.50, 0.5000),
-	(18, 4, 18, 'Naturjoghurt', 150.00, 1.10, 0.2000),
-	(19, 1, 19, 'Hackfleisch Rind', 300.00, 4.50, 6.0000),
-	(20, 3, 20, 'Schmelzkäse', 200.00, 3.00, 0.8000),
-	(21, 4, 21, 'Pfeffer', 100.00, 2.20, 0.8000),
-	(22, 1, 22, 'Gewürzgurken', 200.00, 1.80, 0.4000),
-	(23, 2, 23, 'Eisbergsalat', 100.00, 0.60, 0.1000),
-	(24, 3, 24, 'Weizenmehl Type 405', 500.00, 1.30, 0.5500),
-	(25, 4, 25, 'Banane', 150.00, 0.90, 0.3000),
-	(26, 1, 26, 'Gurke', 200.00, 1.00, 0.1500),
-	(27, 2, 27, 'Butter', 250.00, 3.60, 2.2000),
-	(28, 3, 28, 'Karotte', 150.00, 1.20, 0.2200),
-	(29, 4, 29, 'Vollkornmehl', 500.00, 1.80, 0.6500),
-	(30, 2, 30, 'Hähnchenbrust', 200.00, 5.00, 1.4000),
-	(31, 1, 31, 'Kidneybohnen (gekocht)', 300.00, 2.50, 0.4000),
-	(32, 4, 32, 'Haferflocken', 400.00, 2.20, 0.6000),
-	(33, 2, 33, 'Trauben', 150.00, 2.10, 0.2000),
-	(34, 1, 34, 'Birne', 100.00, 1.80, 0.3000),
-	(35, 3, 35, 'Zucchini', 200.00, 1.00, 0.1500),
-	(36, 4, 36, 'Erdbeere', 150.00, 2.20, 0.2500),
-	(37, 1, 37, 'Käse (Gouda)', 250.00, 5.00, 6.0000),
-	(38, 3, 38, 'Paprika rot', 200.00, 2.00, 0.8000),
-	(39, 4, 39, 'Linsen (gekocht)', 300.00, 1.50, 0.3000),
-	(40, 2, 40, 'Couscous', 250.00, 3.00, 0.6000),
-	(41, 1, 41, 'Honig', 100.00, 4.20, 1.3000),
-	(42, 3, 42, 'Mango', 150.00, 2.50, 0.2000),
-	(43, 4, 43, 'Schweinebraten', 500.00, 4.50, 7.0000),
-	(44, 1, 44, 'Marmelade', 150.00, 2.00, 0.3000),
-	(45, 2, 45, 'Rote Beete', 200.00, 1.30, 0.1500),
-	(46, 3, 46, 'Schweinefilet', 300.00, 3.80, 5.0000),
-	(47, 4, 47, 'Paprika gelb', 150.00, 2.00, 0.7000),
-	(48, 1, 48, 'Aubergine', 100.00, 1.50, 0.3000),
-	(49, 2, 49, 'Reis', 500.00, 2.00, 0.5000),
-	(50, 3, 50, 'Quinoa', 250.00, 4.00, 1.2000),
-	(51, 4, 51, 'Mais', 300.00, 1.50, 0.3000),
-	(52, 1, 52, 'Kartoffeln', 1000.00, 1.00, 0.2500),
-	(53, 2, 53, 'Kiwifrucht', 100.00, 2.00, 0.4000),
-	(54, 3, 54, 'Birnen', 200.00, 1.80, 0.3500),
-	(55, 4, 55, 'Lachs (gegrillt)', 200.00, 7.50, 1.2000),
-	(56, 1, 56, 'Rindfleisch', 250.00, 6.00, 10.0000),
-	(57, 2, 57, 'Karotten (gekocht)', 200.00, 1.20, 0.1500),
-	(58, 3, 58, 'Avocado', 100.00, 4.00, 0.5000),
-	(59, 4, 59, 'Himbeeren', 100.00, 2.80, 0.3500),
-	(60, 1, 60, 'Dinkelmehl', 500.00, 1.80, 0.5500),
-	(61, 3, 61, 'Lammfleisch', 250.00, 6.50, 10.5000),
-	(62, 4, 62, 'Tofu', 200.00, 2.80, 0.3000),
-	(63, 1, 63, 'Müsli', 400.00, 2.00, 0.5000),
-	(64, 3, 64, 'Orange', 200.00, 1.90, 0.3000),
-	(65, 2, 65, 'Hirse', 200.00, 2.00, 0.3000),
-	(66, 4, 66, 'Spinat (gekocht)', 300.00, 3.00, 0.5000),
-	(67, 1, 67, 'Kiwi', 150.00, 1.50, 0.2500),
-	(68, 3, 68, 'Brokkoli', 250.00, 2.50, 0.3000),
-	(69, 4, 69, 'Thunfisch', 150.00, 5.50, 1.2000);
+	lieferant_id,
+	naehrstoffangabe_id,
+	bezeichnung,
+	bestand,
+	nettopreis,
+	co2_aequivalent_pro_kg
+)
+VALUES
+	(2, 1, 'Weizenmehl Tipo 00', 500.00, 1.20, 0.7500),
+	(1, 2, 'Olivenöl', 200.00, 3.50, 8.2500),
+	(3, 3, 'Hefe', 50.00, 0.99, 0.2500),
+	(4, 4, 'Zucker', 1000.00, 1.80, 0.1000),
+	(2, 5, 'Salz', 300.00, 0.50, 0.0500),
+	(3, 6, 'Tomate', 150.00, 1.30, 0.3000),
+	(1, 7, 'Apfel', 200.00, 1.00, 0.3500),
+	(4, 8, 'Margarine', 250.00, 2.20, 1.0000),
+	(2, 9, 'Zitrone', 100.00, 0.80, 0.2500),
+	(1, 10, 'Speisestärke Maizena', 300.00, 1.00, 0.1500),
+	(4, 11, 'Bourbon-Vanillezucker', 50.00, 3.00, 0.2000),
+	(3, 12, 'Zimt', 100.00, 2.50, 1.0000),
+	(1, 13, 'Magerquark', 150.00, 1.00, 0.1500),
+	(2, 14, 'Käse', 200.00, 4.00, 5.5000),
+	(4, 15, 'Eier', 120.00, 2.80, 0.3500),
+	(3, 16, 'Ketchup', 500.00, 1.70, 1.2000),
+	(2, 17, 'Senf', 50.00, 1.50, 0.5000),
+	(4, 18, 'Naturjoghurt', 150.00, 1.10, 0.2000),
+	(1, 19, 'Hackfleisch Rind', 300.00, 4.50, 6.0000),
+	(3, 20, 'Schmelzkäse', 200.00, 3.00, 0.8000),
+	(4, 21, 'Pfeffer', 100.00, 2.20, 0.8000),
+	(1, 22, 'Gewürzgurken', 200.00, 1.80, 0.4000),
+	(2, 23, 'Eisbergsalat', 100.00, 0.60, 0.1000),
+	(3, 24, 'Weizenmehl Type 405', 500.00, 1.30, 0.5500),
+	(4, 25, 'Banane', 150.00, 0.90, 0.3000),
+	(1, 26, 'Gurke', 200.00, 1.00, 0.1500),
+	(2, 27, 'Butter', 250.00, 3.60, 2.2000),
+	(3, 28, 'Karotte', 150.00, 1.20, 0.2200),
+	(4, 29, 'Vollkornmehl', 500.00, 1.80, 0.6500),
+	(2, 30, 'Hähnchenbrust', 200.00, 5.00, 1.4000),
+	(1, 31, 'Kidneybohnen (gekocht)', 300.00, 2.50, 0.4000),
+	(4, 32, 'Haferflocken', 400.00, 2.20, 0.6000),
+	(2, 33, 'Trauben', 150.00, 2.10, 0.2000),
+	(1, 34, 'Birne', 100.00, 1.80, 0.3000),
+	(3, 35, 'Zucchini', 200.00, 1.00, 0.1500),
+	(4, 36, 'Erdbeere', 150.00, 2.20, 0.2500),
+	(1, 37, 'Käse (Gouda)', 250.00, 5.00, 6.0000),
+	(3, 38, 'Paprika rot', 200.00, 2.00, 0.8000),
+	(4, 39, 'Linsen (gekocht)', 300.00, 1.50, 0.3000),
+	(2, 40, 'Couscous', 250.00, 3.00, 0.6000),
+	(1, 41, 'Honig', 100.00, 4.20, 1.3000),
+	(3, 42, 'Mango', 150.00, 2.50, 0.2000),
+	(4, 43, 'Schweinebraten', 500.00, 4.50, 7.0000),
+	(1, 44, 'Marmelade', 150.00, 2.00, 0.3000),
+	(2, 45, 'Rote Beete', 200.00, 1.30, 0.1500),
+	(3, 46, 'Schweinefilet', 300.00, 3.80, 5.0000),
+	(4, 47, 'Paprika gelb', 150.00, 2.00, 0.7000),
+	(1, 48, 'Aubergine', 100.00, 1.50, 0.3000),
+	(2, 49, 'Reis', 500.00, 2.00, 0.5000),
+	(3, 50, 'Quinoa', 250.00, 4.00, 1.2000),
+	(4, 51, 'Mais', 300.00, 1.50, 0.3000),
+	(1, 52, 'Kartoffeln', 1000.00, 1.00, 0.2500),
+	(3, 53, 'Birnen', 200.00, 1.80, 0.3500),
+	(4, 54, 'Lachs (gegrillt)', 200.00, 7.50, 1.2000),
+	(1, 55, 'Rindfleisch', 250.00, 6.00, 10.0000),
+	(2, 56, 'Karotten (gekocht)', 200.00, 1.20, 0.1500),
+	(3, 57, 'Avocado', 100.00, 4.00, 0.5000),
+	(4, 58, 'Himbeeren', 100.00, 2.80, 0.3500),
+	(1, 59, 'Dinkelmehl', 500.00, 1.80, 0.5500),
+	(3, 60, 'Lammfleisch', 250.00, 6.50, 10.5000),
+	(4, 61, 'Tofu', 200.00, 2.80, 0.3000),
+	(1, 62, 'Müsli', 400.00, 2.00, 0.5000),
+	(3, 63, 'Orange', 200.00, 1.90, 0.3000),
+	(2, 64, 'Hirse', 200.00, 2.00, 0.3000),
+	(4, 65, 'Spinat (gekocht)', 300.00, 3.00, 0.5000),
+	(1, 66, 'Kiwi', 150.00, 1.50, 0.2500),
+	(3, 67, 'Brokkoli', 250.00, 2.50, 0.3000),
+	(4, 68, 'Thunfisch', 150.00, 5.50, 1.2000);
 	
 INSERT IGNORE INTO beschraenkung(
-	BeschraenkungId
-	, BeschraenkungTyp
+	beschraenkung_typ
 )
 VALUES
-	(1, 'Religiöse Beschränkung / Religiöser Verbot')
-	,(2, 'Allergie')
-	,(3, 'Unverträglichkeit/Intolleranz')
-	,(4, 'Keine Beschränkung');
+	('Glutenunverträglichkeit'),
+    ('Laktoseintoleranz'),
+    ('Milcheiweißallergie'),
+    ('Eiallergie'),
+    ('Nussallergie'),
+    ('Sojaallergie'),
+    ('Fruktoseintoleranz'),
+    ('Histaminintoleranz'),
+    ('Zöliakie'),
+    ('FürJuden nicht erlaubt'),
+    ('Für Muslime nicht erlaubt'),
+    ('Alkoholintoleranz');
 
 INSERT IGNORE INTO ernaehrungskategorie(
-	ErnaehrungskategorieId
-	, ErnaehrungkategorieTyp
+	ernaehrungskategorie_typ
 )
 VALUES
-	(1, 'Carnevor')
-	,(2, 'Omnivor')
-	,(3, 'Pescetarisch')
-	,(4, 'Vegetarisch')
-	,(5, 'Vegan')
-	,(6, 'Frutarisch')
-	,(7, 'Low Carb')
-	,(8, 'Kalorienarm');
+	('Carnevor')
+	,('Omnivor')
+	,('Pescetarisch')
+	,('Vegetarisch')
+	,('Vegan')
+	,('Frutarisch')
+	,('Low Carb')
+	,('Kalorienarm');
 
-INSERT IGNORE INTO ZUTAT_BESCHRAENKUNG (BeschraenkungId, ZutatId, Beschreibung) VALUES
-(1, 14, 'Schweinegelatine in Käse nicht halal'),
-(1, 43, 'Schweinebraten ist haram'),
-(1, 46, 'Schweinefilet ist haram'),
-(1, 56, 'Rindfleisch nur halal erlaubt'),
-(1, 61, 'Lammfleisch nur halal erlaubt'),
-(2, 2,  'Olivenöl kann Kreuzkontamination mit Nüssen enthalten'),
-(2, 8,  'Margarine enthält oft Milchallergene'),
-(2, 14, 'Milchallergie gegen Käse'),
-(2, 15, 'Eiallergie'),
-(2, 20, 'Schmelzkäse enthält Milch'),
-(2, 55, 'Fischallergie gegen Lachs'),
-(2, 62, 'Sojaallergie gegen Tofu'),
-(2, 63, 'Müsli enthält häufig Nüsse'),
-(3, 4,  'Zucker bei Fructoseintoleranz'),
-(3, 7,  'Apfel enthält Fructose'),
-(3, 9,  'Zitrone enthält Fructose'),
-(3, 34, 'Birne bei Fructoseintoleranz'),
-(3, 36, 'Erdbeere bei Fructoseintoleranz'),
-(3, 42, 'Mango enthält viel Fruchtzucker'),
-(3, 53, 'Kiwifrucht bei Fructoseintoleranz'),
-(3, 59, 'Himbeeren enthalten Fructose'),
-(3, 64, 'Orange bei Fructoseintoleranz'),
-(4, 1,  'Keine spezielle Beschränkung'),
-(4, 5,  'Keine spezielle Beschränkung'),
-(4, 6,  'Keine spezielle Beschränkung'),
-(4, 10, 'Keine spezielle Beschränkung'),
-(4, 12, 'Keine spezielle Beschränkung'),
-(4, 13, 'Keine spezielle Beschränkung'),
-(4, 18, 'Keine spezielle Beschränkung'),
-(4, 24, 'Keine spezielle Beschränkung'),
-(4, 28, 'Keine spezielle Beschränkung'),
-(4, 32, 'Keine spezielle Beschränkung'),
-(4, 35, 'Keine spezielle Beschränkung'),
-(4, 38, 'Keine spezielle Beschränkung'),
-(4, 39, 'Keine spezielle Beschränkung'),
-(4, 40, 'Keine spezielle Beschränkung'),
-(4, 45, 'Keine spezielle Beschränkung'),
-(4, 49, 'Keine spezielle Beschränkung'),
-(4, 52, 'Keine spezielle Beschränkung'),
-(4, 60, 'Keine spezielle Beschränkung'),
-(4, 66, 'Keine spezielle Beschränkung')
-,(4, 3, 'Keine spezielle Beschränkung')
-,(3, 11, 'Kann Fruktose enthalten')
-,(3, 16, 'Enthält Zucker')
-,(2, 17, 'Kann Senfallergene enthalten')
-,(1, 19, 'Nur halal erlaubt')
-,(4, 21, 'Keine spezielle Beschränkung')
-,(3, 22, 'Enthält Fruktose')
-,(4, 23, 'Keine spezielle Beschränkung')
-,(3, 25, 'Enthält Fruktose')
-,(4, 26, 'Keine spezielle Beschränkung')
-,(2, 27, 'Kann Milchallergene enthalten')
-,(2, 29, 'Enthält Gluten')
-,(1, 30, 'Nur halal erlaubt')
-,(4, 31, 'Keine spezielle Beschränkung')
-,(3, 33, 'Enthält Fruktose')
-,(1, 37, 'Enthält tierisches Lab (nicht halal)')
-,(2, 37, 'Kann Milchallergene enthalten')
-,(3, 41, 'Enthält Fruktose')
-,(3, 44, 'Enthält Fruchtzucker')
-,(4, 47, 'Keine spezielle Beschränkung')
-,(4, 48, 'Keine spezielle Beschränkung')
-,(4, 50, 'Keine spezielle Beschränkung')
-,(4, 51, 'Keine spezielle Beschränkung')
-,(3, 54, 'Enthält Fruktose')
-,(4, 57, 'Keine spezielle Beschränkung')
-,(2, 58, 'Kann Latex-Kreuzallergie auslösen')
-,(4, 65, 'Keine spezielle Beschränkung')
-,(2, 67, 'Kann Kiwiallergene enthalten')
-,(4, 68, 'Keine spezielle Beschränkung')
-,(2, 69, 'Enthält Fischallergene');
+INSERT IGNORE INTO zutat_beschraenkung (
+	beschraenkung_id,
+	zutat_id
+) VALUES
+	(1, 1),
+	(9, 1),
+	(2, 4),
+	(3, 4),
+	(2, 13),
+	(3, 13),
+	(4, 15),
+	(11, 19),
+	(10, 19),
+	(12, 43),
+	(13, 43);
 
-INSERT IGNORE INTO KUNDE (KundeId, AdresseId, Vorname, Nachname, Geburtsdatum, TelefonNr, Email) VALUES
-	(1, 4, 'Anna', 'Schneider', '1990-05-12', '01711234567', 'anna.schneider@gmail.com')
-	,(2, 7, 'Ben', 'Müller', '1985-11-03', '015778889999', 'ben.mueller@web.de')
-	,(3, 5, 'Clara', 'Meier', '1994-03-27', '01735551234', 'clara.meier@gmx.de')
-	,(4, 3, 'David', 'Fischer', '1982-09-14', '01791234567', 'david.fischer@t-online.de')
-	,(5, 6, 'Eva', 'Weber', '1998-12-01', '01511334455', 'eva.weber@outlook.de')
-	,(6, 8, 'Felix', 'Wagner', '1979-02-19', '01761112222', 'felix.wagner@hotmail.de')
-	,(7, 3, 'Greta', 'Becker', '1992-07-05', '01609998877', 'greta.becker@yahoo.de')
-	,(8, 4, 'Hannah', 'Hoffmann', '1987-08-20', '01724445566', 'hannah.hoffmann@gmail.com')
-	,(9, 5, 'Isabel', 'Richter', '1996-10-11', '01576662211', 'isabel.richter@web.de')
-	,(10, 7, 'Jonas', 'Klein', '1989-04-06', '01797776655', 'jonas.klein@t-online.de')
-	,(11, 6, 'Klara', 'Wolf', '1993-06-30', '01784443322', 'klara.wolf@outlook.de')
-	,(12, 8, 'Leon', 'Neumann', '1984-01-23', '01599990000', 'leon.neumann@gmx.de')
-	,(13, 4, 'Mia', 'Schröder', '1997-11-08', '01736665544', 'mia.schroeder@yahoo.de')
-	,(14, 5, 'Noah', 'Hartmann', '1991-03-15', '01751112233', 'noah.hartmann@t-online.de')
-	,(15, 7, 'Olivia', 'Krüger', '1980-07-19', '01665554411', 'olivia.krueger@gmail.com')
-	,(16, 6, 'Paul', 'Schulte', '1995-05-02', '01732221111', 'paul.schulte@web.de');
+INSERT IGNORE INTO kunde (
+	adresse_id,
+	vorname,
+	nachname,
+	geburtsdatum,
+	telefonnummer,
+	email
+) VALUES
+	(4, 'Anna', 'Schneider', '1990-05-12', '01711234567', 'anna.schneider@gmail.com')
+	,(7, 'Ben', 'Müller', '1985-11-03', '015778889999', 'ben.mueller@web.de')
+	,(5, 'Clara', 'Meier', '1994-03-27', '01735551234', 'clara.meier@gmx.de')
+	,(3, 'David', 'Fischer', '1982-09-14', '01791234567', 'david.fischer@t-online.de')
+	,(6, 'Eva', 'Weber', '1998-12-01', '01511334455', 'eva.weber@outlook.de')
+	,(8, 'Felix', 'Wagner', '1979-02-19', '01761112222', 'felix.wagner@hotmail.de')
+	,(3, 'Greta', 'Becker', '1992-07-05', '01609998877', 'greta.becker@yahoo.de')
+	,(4, 'Hannah', 'Hoffmann', '1987-08-20', '01724445566', 'hannah.hoffmann@gmail.com')
+	,(5, 'Isabel', 'Richter', '1996-10-11', '01576662211', 'isabel.richter@web.de')
+	,(7, 'Jonas', 'Klein', '1989-04-06', '01797776655', 'jonas.klein@t-online.de')
+	,(6, 'Klara', 'Wolf', '1993-06-30', '01784443322', 'klara.wolf@outlook.de')
+	,(8, 'Leon', 'Neumann', '1984-01-23', '01599990000', 'leon.neumann@gmx.de')
+	,(4, 'Mia', 'Schröder', '1997-11-08', '01736665544', 'mia.schroeder@yahoo.de')
+	,(5, 'Noah', 'Hartmann', '1991-03-15', '01751112233', 'noah.hartmann@t-online.de')
+	,(7, 'Olivia', 'Krüger', '1980-07-19', '01665554411', 'olivia.krueger@gmail.com')
+	,(6, 'Paul', 'Schulte', '1995-05-02', '01732221111', 'paul.schulte@web.de')
+	,(6, 'Rosa', 'Schulte', '1996-04-30', '01732221341', 'rosa.schulte@web.de');
 	
-INSERT IGNORE INTO BESTELLUNG (BestellungId, KundeId, Gesamtpreis, Bestelldatum) VALUES
-	(1, 1, 24.99, '2024-01-15')
-	,(2, 2, 57.20, '2024-01-20')
-	,(3, 3, 35.75, '2024-02-01')
-	,(4, 4, 80.10, '2024-02-10')
-	,(5, 5, 45.60, '2024-03-05')
-	,(6, 6, 99.90, '2024-03-20')
-	,(7, 7, 18.75, '2024-04-03')
-	,(8, 8, 110.50, '2024-04-15')
-	,(9, 9, 64.30, '2024-05-01')
-	,(10, 10, 42.80, '2024-05-10')
-	,(11, 11, 78.45, '2024-05-25')
-	,(12, 12, 59.99, '2024-06-05')
-	,(13, 13, 33.25, '2024-06-12')
-	,(14, 14, 70.10, '2024-06-30')
-	,(15, 15, 84.60, '2024-07-07')
-	,(16, 16, 29.50, '2024-07-15')
-	,(17, 1, 55.00, '2024-08-01')
-	,(18, 2, 66.40, '2024-08-18')
-	,(19, 3, 120.00, '2024-09-02')
-	,(20, 4, 90.70, '2024-09-14')
-	,(21, 5, 49.99, '2024-09-30')
-	,(22, 6, 30.30, '2024-10-10')
-	,(23, 7, 58.60, '2024-10-25')
-	,(24, 8, 75.00, '2024-11-03')
-	,(25, 9, 28.45, '2024-11-11')
-	,(26, 10, 87.20, '2024-11-28')
-	,(27, 11, 62.10, '2024-12-02')
-	,(28, 12, 54.70, '2024-12-12')
-	,(29, 13, 36.99, '2024-12-20')
-	,(30, 14, 48.30, '2024-12-23')
-	,(31, 15, 79.40, '2024-12-28')
-	,(32, 16, 67.80, '2024-12-31');
+INSERT IGNORE INTO bestellung (
+	kunde_id,
+	gesamtpreis,
+	bestelldatum
+) VALUES
+	(1, 24.99, '2024-01-15')
+	,(2, 57.20, '2024-01-20')
+	,(3, 35.75, '2024-02-01')
+	,(1, 80.10, '2024-02-10')
+	,(5, 45.60, '2024-03-05')
+	,(8, 99.90, '2024-03-20')
+	,(1, 18.75, '2024-04-03')
+	,(8, 110.50, '2024-04-15')
+	,(2, 64.30, '2024-05-01')
+	,(2, 42.80, '2024-05-10')
+	,(11, 78.45, '2024-05-25')
+	,(11, 59.99, '2024-06-05')
+	,(13, 33.25, '2024-06-12')
+	,(14, 70.10, '2024-06-30')
+	,(15, 84.60, '2024-07-07')
+	,(1, 29.50, '2024-07-15')
+	,(1, 55.00, '2024-08-01')
+	,(5, 66.40, '2024-08-18')
+	,(3, 120.00, '2024-09-02')
+	,(4, 90.70, '2024-09-14')
+	,(5, 49.99, '2024-09-30')
+	,(6, 30.30, '2024-10-10')
+	,(7, 58.60, '2024-10-25')
+	,(8, 75.00, '2024-11-03')
+	,(9, 28.45, '2024-11-11')
+	,(10, 87.20, '2024-11-28')
+	,(11, 62.10, '2024-12-02')
+	,(12, 54.70, '2024-12-12')
+	,(13, 36.99, '2024-12-20')
+	,(14, 48.30, '2024-12-23')
+	,(15, 79.40, '2024-12-28')
+	,(16, 67.80, '2024-12-31');
 
 INSERT IGNORE INTO zutat_ernaehrungskategorie (
-	ErnaehrungskategorieId
-	,ZutatId
+	ernaehrungskategorie_id,
+	zutat_id
 )
 VALUES
 	(1, 19)
@@ -539,157 +498,161 @@ VALUES
 	,(8, 68);
 	
 INSERT IGNORE INTO rezept (
-	RezeptId
-	,Titel
-	,Beschreibung
-	,Zubereitung
-	,Zubereitungszeit
-	,Portionen
+	titel,
+	beschreibung,
+	zubereitung,
+	zubereitungszeit_min,
+	portionen
 )
 VALUES
-	(1, 'Gefüllte Paprika mit Hackfleisch', 'Low-Carb-Abendessen mit viel Protein und Gemüse', 'Paprika halbieren, mit gewürztem Hackfleisch füllen und im Ofen backen.', '00:45', 2)
-	,(2, 'Zucchini-Spaghetti mit Avocado-Pesto', 'Gesunde Zoodles mit cremigem Pesto', 'Zucchini spiralieren, Avocado mit Kräutern pürieren und alles vermengen.', '00:25', 2)
-	,(3, 'Gegrillter Lachs auf Spinatbett', 'Low-Carb-Fischgericht mit frischem Gemüse', 'Lachsfilet würzen, grillen und auf gedünstetem Spinat servieren.', '00:30', 2)
-	,(4, 'Eier-Käse-Omelett mit Brokkoli', 'Eiweißreiches Frühstück oder Abendessen', 'Eier verquirlen, Brokkoli dünsten, alles mit Käse in der Pfanne braten.', '00:20', 1)
-	,(5, 'Kichererbsen-Curry mit Reis', 'Würziges veganes Gericht mit Kokosmilch', 'Kichererbsen anbraten, Curry und Kokosmilch zugeben, mit Reis servieren.', '00:40', 3)
-	,(6, 'Ofengemüse mit Quinoa', 'Buntes Gemüse vom Blech mit Quinoa', 'Gemüse würfeln, im Ofen rösten, mit Quinoa servieren.', '00:35', 2)
-	,(7, 'Vegane Linsensuppe', 'Herzhafte Suppe für kalte Tage', 'Linsen, Karotten und Gewürze köcheln, pürieren und abschmecken.', '00:50', 4)
-	,(8, 'Tofu-Gemüse-Pfanne', 'Schnelles asiatisch inspiriertes Pfannengericht', 'Tofu anbraten, Gemüse und Sojasauce dazu, mit Reis servieren.', '00:30', 2)
-	,(9, 'Spaghetti mit Tomaten und Aubergine', 'Veganes Pasta-Rezept', 'Auberginen und Tomaten anbraten, mit Nudeln vermischen.', '00:25', 2)
-	,(10, 'Gemüse-Lasagne', 'Lasagne mit Zucchini, Tomaten und Käse', 'Gemüse schichten, mit Tomatensauce und Käse überbacken.', '01:00', 4)
-	,(11, 'Spinat-Feta-Strudel', 'Herzhafter Blätterteig mit Spinatfüllung', 'Strudelteig mit Spinat und Feta füllen, backen und heiß servieren.', '00:50', 2)
-	,(12, 'Rührei mit Tomaten und Vollkornbrot', 'Schnelles vegetarisches Frühstück', 'Eier aufschlagen, mit Tomaten braten, mit Brot servieren.', '00:15', 1)
-	,(13, 'Thunfischsalat mit Avocado', 'Frischer Salat mit Fisch und Gemüse', 'Thunfisch, Avocado, Gurke und Salat mischen, mit Zitrone abschmecken.', '00:15', 2)
-	,(14, 'Lachs-Couscous-Bowl', 'Gesunde Bowl mit Fisch und Gemüse', 'Couscous garen, mit Lachs und Gemüse in Schale servieren.', '00:30', 2)
-	,(15, 'Burger mit Rindfleisch und Käse', 'Klassischer Burger mit allem Drum und Dran', 'Patty braten, mit Käse, Salat und Brötchen servieren.', '00:25', 1)
-	,(16, 'Schnitzel mit Kartoffelsalat', 'Hausmannskost mit Fleisch', 'Schnitzel panieren und braten, mit Salat servieren.', '00:50', 2)
-	,(17, 'Nudelauflauf mit Schweinebraten', 'Überbackene Nudeln mit Fleisch und Gemüse', 'Nudeln vorkochen, mit Schweinebraten und Käse überbacken.', '00:45', 3)
-	,(18, 'Frühstücks-Rührei mit Schweinebraten', 'Deftiges Frühstück mit Ei und Fleisch', 'Schweinebraten in kleine Scheiben schneiden und anbraten, Eier zugeben und stocken lassen.', '00:15', 1)
-	,(19, 'Hähnchenbrust mit Reis und Brokkoli', 'Proteinreiche Hauptmahlzeit', 'Hähnchen würzen und braten, mit Gemüse und Reis servieren.', '00:40', 2)
-	,(20, 'Pizza mit SaHackfleisch lami und Mozzarella', 'Klassische Pizza mit Fleischbelag', 'Teig ausrollen, belegen und im Ofen backen.', '00:55', 2);
+	('Gefüllte Paprika mit Hackfleisch', 'Low-Carb-Abendessen mit viel Protein und Gemüse', 'Paprika halbieren, mit gewürztem Hackfleisch füllen und im Ofen backen.', 45, 2)
+	,('Zucchini-Spaghetti mit Avocado-Pesto', 'Gesunde Zoodles mit cremigem Pesto', 'Zucchini spiralieren, Avocado mit Kräutern pürieren und alles vermengen.', 25, 2)
+	,('Gegrillter Lachs auf Spinatbett', 'Low-Carb-Fischgericht mit frischem Gemüse', 'Lachsfilet würzen, grillen und auf gedünstetem Spinat servieren.', 30, 2)
+	,('Eier-Käse-Omelett mit Brokkoli', 'Eiweißreiches Frühstück oder Abendessen', 'Eier verquirlen, Brokkoli dünsten, alles mit Käse in der Pfanne braten.', 20, 1)
+	,('Kichererbsen-Curry mit Reis', 'Würziges veganes Gericht mit Kokosmilch', 'Kichererbsen anbraten, Curry und Kokosmilch zugeben, mit Reis servieren.', 40, 3)
+	,('Ofengemüse mit Quinoa', 'Buntes Gemüse vom Blech mit Quinoa', 'Gemüse würfeln, im Ofen rösten, mit Quinoa servieren.', 35, 2)
+	,('Vegane Linsensuppe', 'Herzhafte Suppe für kalte Tage', 'Linsen, Karotten und Gewürze köcheln, pürieren und abschmecken.', 50, 4)
+	,('Tofu-Gemüse-Pfanne', 'Schnelles asiatisch inspiriertes Pfannengericht', 'Tofu anbraten, Gemüse und Sojasauce dazu, mit Reis servieren.', 30, 2)
+	,('Spaghetti mit Tomaten und Aubergine', 'Veganes Pasta-Rezept', 'Auberginen und Tomaten anbraten, mit Nudeln vermischen.', 25, 2)
+	,('Gemüse-Lasagne', 'Lasagne mit Zucchini, Tomaten und Käse', 'Gemüse schichten, mit Tomatensauce und Käse überbacken.', 60, 4)
+	,('Spinat-Feta-Strudel', 'Herzhafter Blätterteig mit Spinatfüllung', 'Strudelteig mit Spinat und Feta füllen, backen und heiß servieren.', 50, 2)
+	,('Rührei mit Tomaten und Vollkornbrot', 'Schnelles vegetarisches Frühstück', 'Eier aufschlagen, mit Tomaten braten, mit Brot servieren.', 15, 1)
+	,('Thunfischsalat mit Avocado', 'Frischer Salat mit Fisch und Gemüse', 'Thunfisch, Avocado, Gurke und Salat mischen, mit Zitrone abschmecken.', 15, 2)
+	,('Lachs-Couscous-Bowl', 'Gesunde Bowl mit Fisch und Gemüse', 'Couscous garen, mit Lachs und Gemüse in Schale servieren.', 30, 2)
+	,('Burger mit Rindfleisch und Käse', 'Klassischer Burger mit allem Drum und Dran', 'Patty braten, mit Käse, Salat und Brötchen servieren.', 25, 1)
+	,('Schnitzel mit Kartoffelsalat', 'Hausmannskost mit Fleisch', 'Schnitzel panieren und braten, mit Salat servieren.', 50, 2)
+	,('Nudelauflauf mit Schweinebraten', 'Überbackene Nudeln mit Fleisch und Gemüse', 'Nudeln vorkochen, mit Schweinebraten und Käse überbacken.', 45, 3)
+	,('Frühstücks-Rührei mit Schweinebraten', 'Deftiges Frühstück mit Ei und Fleisch', 'Schweinebraten in kleine Scheiben schneiden und anbraten, Eier zugeben und stocken lassen.', 15, 1)
+	,('Hähnchenbrust mit Reis und Brokkoli', 'Proteinreiche Hauptmahlzeit', 'Hähnchen würzen und braten, mit Gemüse und Reis servieren.', 40, 2)
+	,('Pizza mit SaHackfleisch lami und Mozzarella', 'Klassische Pizza mit Fleischbelag', 'Teig ausrollen, belegen und im Ofen backen.', 55, 2);
 	
-INSERT IGNORE INTO REZEPT_ZUTAT (RezeptId, ZutatId, Menge)
+INSERT IGNORE INTO rezept_zutat (
+	rezept_id,
+	zutat_id,
+	menge,
+	einheit
+)
 VALUES
-    (1, 19, 300.00),  -- Hackfleisch Rind (300g für Rezept 1)
-    (1, 38, 200.00),  -- Paprika rot (200g für Rezept 1)
-    (1, 6, 100.00),   -- Zwiebel (100g für Rezept 1)
-    (1, 2, 20.00),    -- Olivenöl (20ml für Rezept 1)
-    (1, 21, 5.00),    -- Pfeffer (5g für Rezept 1)
-    (1, 5, 5.00),     -- Salz (5g für Rezept 1)
-    (1, 6, 150.00),   -- Tomaten (150g für Rezept 1)
-    (1, 6, 10.00),
-    (2, 35, 200.00),  -- Zucchini (200g für Rezept 2)
-    (2, 58, 100.00),  -- Avocado (100g für Rezept 2)
-    (2, 2, 20.00),    -- Olivenöl (20ml für Rezept 2)
-    (2, 6, 10.00),    -- Knoblauch (10g für Rezept 2)
-    (2, 21, 5.00),    -- Pfeffer (5g für Rezept 2)
-    (2, 5, 5.00),     -- Salz (5g für Rezept 2)
-    (2, 9, 10.00),
-    (3, 55, 200.00),  -- Lachs
-	 (3, 66, 300.00),
-	 (3, 21, 5.00),    -- Pfeffer
-    (3, 5, 5.00), 	-- Salz
-    (4, 15, 0.24),  -- Eier (ca. 3 Stück, 0.24 kg)
-    (4, 14, 0.10),  -- Käse (ca. 100 g)
-    (4, 68, 0.15),
-    (4, 21, 5.00),    -- Pfeffer
-    (4, 5, 5.00),
-    (5, 31, 300.00),  -- Kichererbsen (gekocht) mit 300g
-    (5, 19, 300.00),  -- Hackfleisch Rind mit 300g (optional, falls in Rezept verwendet)
-    (5, 49, 500.00),  -- Reis mit 500g
-    (5, 39, 300.00),
-    (5, 21, 5.00),    -- Pfeffer
-    (5, 5, 5.00),		-- Salz
-    (6, 50, 1.00), -- Quinoa
-  	(6, 38, 1.00), -- Paprika (rot)
-  	(6, 35, 1.00), -- Zucchini
-  	(6, 48, 1.00),
-  	(6, 21, 5.00),    -- Pfeffer
-   (6, 5, 5.00),		-- Salz
-   (7, 39, 200.00),  -- Linsen (gekocht), 200g
-    (7, 28, 100.00),  -- Karotten (gekocht), 100g
-    (7, 38, 50.00),
-    (7, 21, 5.00),    -- Pfeffer
-   (7, 5, 5.00),		-- Salz
-   (8, 62, 1.00), -- Tofu (ZutatId = 62)
-  (8, 35, 1.50), -- Zucchini (ZutatId = 35)
-  (8, 38, 1.00),
-  (8, 21, 5.00),    -- Pfeffer
-   (8, 5, 5.00),		-- Salz
-   (9, 48, 200.00), -- Aubergine
-    (9, 6, 150.00),  -- Tomate
-    (9, 1, 250.00), 
-    (9, 21, 5.00),    -- Pfeffer
-   (9, 5, 5.00),		-- Salz
-    (10, 35, 2.00),  -- Zucchini (ZutatId 35), Menge 2.00
-    (10, 6, 3.00),   -- Tomate (ZutatId 6), Menge 3.00
-    (10, 14, 1.50),  -- Käse (ZutatId 14), Menge 1.50
-    (10, 24, 2.00),  -- Weizenmehl Type 405 (ZutatId 24), Menge 2.00
-    (10, 37, 1.00),  -- Käse (Gouda) (ZutatId 37), Menge 1.00
-    (10, 47, 1.50),
-    (10, 21, 5.00),    -- Pfeffer
-   (10, 5, 5.00),		-- Salz
-   (11, 66, 300.00),  -- Spinat (gekocht), ZutatId 66, Menge 300g
-    (11, 37, 250.00),
-    (11, 21, 5.00),    -- Pfeffer
-   (11, 5, 5.00),		-- Salz
-   (12, 15, 2.00),  -- Eier
-    (12, 6, 1.00),   -- Tomate
-    (12, 52, 1.00),
-    (12, 21, 5.00),    -- Pfeffer
-   (12, 5, 5.00),		-- Salz
-    (13, 69, 1.00), -- Thunfisch
-    (13, 58, 1.00), -- Avocado
-    (13, 26, 0.50), -- Gurke
-    (13, 23, 1.00), -- Eisbergsalat
-    (13, 9, 0.20),
-    (13, 21, 5.00),    -- Pfeffer
-   (13, 5, 5.00),		-- Salz
-   (14, 55, 200.00),  -- Lachs (gegrillt) 200g
-    (14, 40, 100.00),  -- Couscous 100g
-    (14, 38, 100.00),  -- Paprika rot 100g
-    (14, 35, 100.00),  -- Zucchini 100g
-    (14, 2, 20.00),    -- Olivenöl 20ml
-    (14, 21, 2.00),    -- Pfeffer 2g
-    (14, 5, 3.00),
-    (15, 56, 250.00), -- Rindfleisch
-    (15, 37, 100.00), -- Käse (Gouda)
-    (15, 5, 5.00),    -- Salz
-    (15, 21, 2.00),   -- Pfeffer
-    (15, 1, 200.00),
-    (16, 43, 2.00),   -- Schnitzel
-    (16, 52, 500.00),  -- Kartoffeln
-    (16, 5, 10.00),    -- Salz
-    (16, 21, 5.00),    -- Pfeffer
-    (16, 27, 50.00),
-    (17, 43, 200.00),  -- Schinken, Menge: 200g
-	(17, 24, 300.00),  -- Weizenmehl (Nudeln), Menge: 300g
-	(17, 37, 150.00),
-	(17, 5, 10.00),    -- Salz
-    (17, 21, 5.00),    -- Pfeffer
-    (18, 15, 4.00),  -- Eier
-    (18, 43, 2.00),  -- Speck
-    (18, 5, 0.10),   -- Salz
-    (18, 21, 0.05),
-    (19, 30, 200.00),  -- Hähnchenbrust 200g
-    (19, 49, 150.00),  -- Reis 150g
-    (19, 68, 100.00), 
-    (19, 5, 0.10),   -- Salz
-    (19, 21, 0.05),
-    (20, 1, 300.00),  -- Weizenmehl (ZutatId 1, Menge 300g)
-    (20, 2, 50.00),   -- Olivenöl (ZutatId 2, Menge 50ml)
-    (20, 5, 5.00),    -- Salz (ZutatId 5, Menge 5g)
-    (20, 6, 150.00),  -- Tomaten (ZutatId 6, Menge 150g)
-    (20, 14, 200.00), -- Käse (ZutatId 14, Menge 200g, hier Mozzarella)
-    (20, 19, 150.00),
-    (20, 5, 0.10),   -- Salz
-    (20, 21, 0.05);
+    (1, 19, 300.00, 'g'),  -- Hackfleisch Rind (300g für Rezept 1)
+    (1, 38, 200.00, 'g'),  -- Paprika rot (200g für Rezept 1)
+    (1, 6, 100.00, 'g'),   -- Zwiebel (100g für Rezept 1)
+    (1, 2, 20.00, 'ml'),    -- Olivenöl (20ml für Rezept 1)
+    (1, 21, 5.00, 'g'),    -- Pfeffer (5g für Rezept 1)
+    (1, 5, 5.00, 'g'),     -- Salz (5g für Rezept 1)
+    (1, 6, 150.00, 'g'),   -- Tomaten (150g für Rezept 1)
+    (1, 6, 10.00, 'g'),
+    (2, 35, 200.00, 'g'),  -- Zucchini (200g für Rezept 2)
+    (2, 58, 100.00, 'g'),  -- Avocado (100g für Rezept 2)
+    (2, 2, 20.00, 'ml'),    -- Olivenöl (20ml für Rezept 2)
+    (2, 6, 10.00, 'g'),    -- Knoblauch (10g für Rezept 2)
+    (2, 21, 5.00, 'g'),    -- Pfeffer (5g für Rezept 2)
+    (2, 5, 5.00, 'g'),     -- Salz (5g für Rezept 2)
+    (2, 9, 10.00, 'g'),
+    (3, 55, 200.00, 'g'),  -- Lachs
+	 (3, 66, 300.00, 'g'),
+	 (3, 21, 5.00, 'g'),    -- Pfeffer
+    (3, 5, 5.00, 'g'), 	-- Salz
+    (4, 15, 0.24, 'kg'),  -- Eier (ca. 3 Stück, 0.24 kg)
+    (4, 14, 100, 'g'),  -- Käse (ca. 100 g)
+    (4, 68, 15, 'g'),
+    (4, 21, 5.00, 'g'),    -- Pfeffer
+    (4, 5, 5.00, 'g'),
+    (5, 31, 300.00, 'g'),  -- Kichererbsen (gekocht) mit 300g
+    (5, 19, 300.00, 'g'),  -- Hackfleisch Rind mit 300g (optional, falls in Rezept verwendet)
+    (5, 49, 500.00, 'g'),  -- Reis mit 500g
+    (5, 39, 300.00, 'g'),
+    (5, 21, 5.00, 'g'),    -- Pfeffer
+    (5, 5, 5.00, 'g'),		-- Salz
+    (6, 50, 1.00, 'g'), -- Quinoa
+  	(6, 38, 1.00, 'g'), -- Paprika (rot)
+  	(6, 35, 1.00, 'g'), -- Zucchini
+  	(6, 48, 1.00, 'g'),
+  	(6, 21, 5.00, 'g'),    -- Pfeffer
+   (6, 5, 5.00, 'g'),		-- Salz
+   (7, 39, 200.00, 'g'),  -- Linsen (gekocht), 200g
+    (7, 28, 100.00, 'g'),  -- Karotten (gekocht), 100g
+    (7, 38, 50.00, 'g'),
+    (7, 21, 5.00, 'g'),    -- Pfeffer
+   (7, 5, 5.00, 'g'),		-- Salz
+   (8, 62, 100, 'g'), -- Tofu (ZutatId = 62)
+  (8, 35, 150, 'g'), -- Zucchini (ZutatId = 35)
+  (8, 38, 100, 'g'),
+  (8, 21, 5.00, 'g'),    -- Pfeffer
+   (8, 5, 5.00, 'g'),		-- Salz
+   (9, 48, 200.00, 'g'), -- Aubergine
+    (9, 6, 150.00, 'g'),  -- Tomate
+    (9, 1, 250.00, 'g'), 
+    (9, 21, 5.00, 'g'),    -- Pfeffer
+   (9, 5, 5.00, 'g'),		-- Salz
+    (10, 35, 200, 'g'),  -- Zucchini (ZutatId 35), Menge 2.00
+    (10, 6, 300, 'g'),   -- Tomate (ZutatId 6), Menge 3.00
+    (10, 14, 150, 'g'),  -- Käse (ZutatId 14), Menge 1.50
+    (10, 24, 200, 'g'),  -- Weizenmehl Type 405 (ZutatId 24), Menge 2.00
+    (10, 37, 100, 'g'),  -- Käse (Gouda) (ZutatId 37), Menge 1.00
+    (10, 47, 150, 'g'),
+    (10, 21, 5.00, 'g'),    -- Pfeffer
+   (10, 5, 5.00, 'g'),		-- Salz
+   (11, 66, 300.00, 'g'),  -- Spinat (gekocht), ZutatId 66, Menge 300g
+    (11, 37, 250.00, 'g'),
+    (11, 21, 5.00, 'g'),    -- Pfeffer
+   (11, 5, 5.00, 'g'),		-- Salz
+   (12, 15, 200, 'g'),  -- Eier
+    (12, 6, 100, 'g'),   -- Tomate
+    (12, 52, 100, 'g'),
+    (12, 21, 5.00, 'g'),    -- Pfeffer
+   (12, 5, 5.00, 'g'),		-- Salz
+    (13, 69, 100, 'g'), -- Thunfisch
+    (13, 58, 100, 'g'), -- Avocado
+    (13, 26, 50, 'g'), -- Gurke
+    (13, 23, 100, 'g'), -- Eisbergsalat
+    (13, 9, 20, 'g'),
+    (13, 21, 5.00, 'g'),    -- Pfeffer
+   (13, 5, 5.00, 'g'),		-- Salz
+   (14, 55, 200.00, 'g'),  -- Lachs (gegrillt) 200g
+    (14, 40, 100.00, 'g'),  -- Couscous 100g
+    (14, 38, 100.00, 'g'),  -- Paprika rot 100g
+    (14, 35, 100.00, 'g'),  -- Zucchini 100g
+    (14, 2, 20.00, 'ml'),    -- Olivenöl 20ml
+    (14, 21, 2.00, 'g'),    -- Pfeffer 2g
+    (14, 5, 3.00, 'g'),
+    (15, 56, 250.00, 'g'), -- Rindfleisch
+    (15, 37, 100.00, 'g'), -- Käse (Gouda)
+    (15, 5, 5.00, 'g'),    -- Salz
+    (15, 21, 2.00, 'g'),   -- Pfeffer
+    (15, 1, 200.00, 'g'),
+    (16, 43, 200, 'g'),   -- Schweinebraten
+    (16, 52, 500.00, 'g'),  -- Kartoffeln
+    (16, 5, 10.00, 'g'),    -- Salz
+    (16, 21, 5.00, 'g'),    -- Pfeffer
+    (16, 27, 50.00, 'g'),
+    (17, 43, 200.00, 'g'),  -- Schweinebraten, Menge: 200g
+	(17, 24, 300.00, 'g'),  -- Weizenmehl (Nudeln), Menge: 300g
+	(17, 37, 150.00, 'g'),
+	(17, 5, 10.00, 'g'),    -- Salz
+    (17, 21, 5.00, 'g'),    -- Pfeffer
+    (18, 15, 240, 'g'),  -- Eier
+    (18, 43, 200, 'g'),  -- Schweinebraten
+    (18, 5, 10, 'g'),   -- Salz
+    (18, 21, 5, 'g'),
+    (19, 30, 200.00, 'g'),  -- Hähnchenbrust 200g
+    (19, 49, 150.00, 'g'),  -- Reis 150g
+    (19, 68, 100.00, 'g'), 
+    (19, 5, 10, 'g'),   -- Salz
+    (19, 21, 05, 'g'),
+    (20, 1, 300.00, 'g'),  -- Weizenmehl (ZutatId 1, Menge 300g)
+    (20, 2, 50.00, 'g'),   -- Olivenöl (ZutatId 2, Menge 50ml)
+    (20, 5, 5.00, 'g'),    -- Salz (ZutatId 5, Menge 5g)
+    (20, 6, 150.00, 'g'),  -- Tomaten (ZutatId 6, Menge 150g)
+    (20, 14, 200.00, 'g'), -- Käse (ZutatId 14, Menge 200g, hier Mozzarella)
+    (20, 19, 150.00, 'g'),
+    (20, 5, 10, 'g'),   -- Salz
+    (20, 21, 05, 'g');
     
-    INSERT IGNORE INTO REZEPT_BESTELLUNG (
-	 	BestellungId
-		 ,RezeptId
-		 ,Menge
-	)
+INSERT IGNORE INTO REZEPT_BESTELLUNG (
+	bestellung_id,
+	rezept_id,
+	menge
+)
 	VALUES
     (1, 1, 2),  -- Bestellung 1 enthält 2x "Gefüllte Paprika mit Hackfleisch"
     (1, 5, 1),  -- Bestellung 1 enthält 1x "Kichererbsen-Curry mit Reis"
@@ -703,7 +666,7 @@ VALUES
     (6, 14, 1), -- Bestellung 6 enthält 1x "Lachs-Couscous-Bowl"
     (7, 13, 2), -- Bestellung 7 enthält 2x "Thunfischsalat mit Avocado"
     (8, 3, 1),  -- Bestellung 8 enthält 1x "Gegrillter Lachs auf Spinatbett"
-    (8, 16, 2), -- Bestellung 8 enthält 2x "Schnitzel mit Kartoffelsalat"
+    (8, 16, 2), -- Bestellung 8 enthält 2x "Schweinebraten mit Kartoffelsalat"
     (9, 11, 1), -- Bestellung 9 enthält 1x "Spinat-Feta-Strudel"
     (9, 12, 2), -- Bestellung 9 enthält 2x "Rührei mit Tomaten und Vollkornbrot"
     (10, 15, 3), -- Bestellung 10 enthält 3x "Burger mit Rindfleisch und Käse"
@@ -711,7 +674,7 @@ VALUES
     (12, 18, 1), -- Bestellung 12 enthält 1x "Frühstücks-Rührei mit Schweinebraten"
     (13, 5, 1),  -- Bestellung 13 enthält 1x "Kichererbsen-Curry mit Reis"
     (14, 17, 2), -- Bestellung 14 enthält 2x "Nudelauflauf mit Schweinebraten"
-    (15, 20, 1), -- Bestellung 15 enthält 1x "Pizza mit SaHackfleisch lami und Mozzarella"
+    (15, 20, 1), -- Bestellung 15 enthält 1x "Pizza mit Hackfleisch und Mozzarella"
     (16, 6, 2),  -- Bestellung 16 enthält 2x "Ofengemüse mit Quinoa"
     (17, 1, 2),  -- Bestellung 17 enthält 2x "Gefüllte Paprika mit Hackfleisch"
     (18, 10, 1), -- Bestellung 18 enthält 1x "Gemüse-Lasagne"
@@ -722,7 +685,7 @@ VALUES
     (23, 4, 1),  -- Bestellung 23 enthält 1x "Eier-Käse-Omelett mit Brokkoli"
     (24, 5, 1),  -- Bestellung 24 enthält 1x "Kichererbsen-Curry mit Reis"
     (25, 19, 2), -- Bestellung 25 enthält 2x "Hähnchenbrust mit Reis und Brokkoli"
-    (26, 16, 1), -- Bestellung 26 enthält 1x "Schnitzel mit Kartoffelsalat"
+    (26, 16, 1), -- Bestellung 26 enthält 1x "Schweinebraten mit Kartoffelsalat"
     (27, 13, 1), -- Bestellung 27 enthält 1x "Thunfischsalat mit Avocado"
     (28, 7, 2),  -- Bestellung 28 enthält 2x "Vegane Linsensuppe"
     (29, 8, 2),  -- Bestellung 29 enthält 2x "Tofu-Gemüse-Pfanne"
