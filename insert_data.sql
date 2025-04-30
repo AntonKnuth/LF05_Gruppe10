@@ -527,3 +527,195 @@ VALUES
 	,(8, 66)
 	,(8, 67)
 	,(8, 68);
+	
+INSERT IGNORE INTO rezept (
+	RezeptId
+	,Titel
+	,Beschreibung
+	,Zubereitung
+	,Zubereitungszeit
+	,Portionen
+)
+VALUES
+	(1, 'Gefüllte Paprika mit Hackfleisch', 'Low-Carb-Abendessen mit viel Protein und Gemüse', 'Paprika halbieren, mit gewürztem Hackfleisch füllen und im Ofen backen.', '00:45', 2)
+	,(2, 'Zucchini-Spaghetti mit Avocado-Pesto', 'Gesunde Zoodles mit cremigem Pesto', 'Zucchini spiralieren, Avocado mit Kräutern pürieren und alles vermengen.', '00:25', 2)
+	,(3, 'Gegrillter Lachs auf Spinatbett', 'Low-Carb-Fischgericht mit frischem Gemüse', 'Lachsfilet würzen, grillen und auf gedünstetem Spinat servieren.', '00:30', 2)
+	,(4, 'Eier-Käse-Omelett mit Brokkoli', 'Eiweißreiches Frühstück oder Abendessen', 'Eier verquirlen, Brokkoli dünsten, alles mit Käse in der Pfanne braten.', '00:20', 1)
+	,(5, 'Kichererbsen-Curry mit Reis', 'Würziges veganes Gericht mit Kokosmilch', 'Kichererbsen anbraten, Curry und Kokosmilch zugeben, mit Reis servieren.', '00:40', 3)
+	,(6, 'Ofengemüse mit Quinoa', 'Buntes Gemüse vom Blech mit Quinoa', 'Gemüse würfeln, im Ofen rösten, mit Quinoa servieren.', '00:35', 2)
+	,(7, 'Vegane Linsensuppe', 'Herzhafte Suppe für kalte Tage', 'Linsen, Karotten und Gewürze köcheln, pürieren und abschmecken.', '00:50', 4)
+	,(8, 'Tofu-Gemüse-Pfanne', 'Schnelles asiatisch inspiriertes Pfannengericht', 'Tofu anbraten, Gemüse und Sojasauce dazu, mit Reis servieren.', '00:30', 2)
+	,(9, 'Spaghetti mit Tomaten und Aubergine', 'Veganes Pasta-Rezept', 'Auberginen und Tomaten anbraten, mit Nudeln vermischen.', '00:25', 2)
+	,(10, 'Gemüse-Lasagne', 'Lasagne mit Zucchini, Tomaten und Käse', 'Gemüse schichten, mit Tomatensauce und Käse überbacken.', '01:00', 4)
+	,(11, 'Spinat-Feta-Strudel', 'Herzhafter Blätterteig mit Spinatfüllung', 'Strudelteig mit Spinat und Feta füllen, backen und heiß servieren.', '00:50', 2)
+	,(12, 'Rührei mit Tomaten und Vollkornbrot', 'Schnelles vegetarisches Frühstück', 'Eier aufschlagen, mit Tomaten braten, mit Brot servieren.', '00:15', 1)
+	,(13, 'Thunfischsalat mit Avocado', 'Frischer Salat mit Fisch und Gemüse', 'Thunfisch, Avocado, Gurke und Salat mischen, mit Zitrone abschmecken.', '00:15', 2)
+	,(14, 'Lachs-Couscous-Bowl', 'Gesunde Bowl mit Fisch und Gemüse', 'Couscous garen, mit Lachs und Gemüse in Schale servieren.', '00:30', 2)
+	,(15, 'Burger mit Rindfleisch und Käse', 'Klassischer Burger mit allem Drum und Dran', 'Patty braten, mit Käse, Salat und Brötchen servieren.', '00:25', 1)
+	,(16, 'Schnitzel mit Kartoffelsalat', 'Hausmannskost mit Fleisch', 'Schnitzel panieren und braten, mit Salat servieren.', '00:50', 2)
+	,(17, 'Nudelauflauf mit Schweinebraten', 'Überbackene Nudeln mit Fleisch und Gemüse', 'Nudeln vorkochen, mit Schweinebraten und Käse überbacken.', '00:45', 3)
+	,(18, 'Frühstücks-Rührei mit Schweinebraten', 'Deftiges Frühstück mit Ei und Fleisch', 'Schweinebraten in kleine Scheiben schneiden und anbraten, Eier zugeben und stocken lassen.', '00:15', 1)
+	,(19, 'Hähnchenbrust mit Reis und Brokkoli', 'Proteinreiche Hauptmahlzeit', 'Hähnchen würzen und braten, mit Gemüse und Reis servieren.', '00:40', 2)
+	,(20, 'Pizza mit SaHackfleisch lami und Mozzarella', 'Klassische Pizza mit Fleischbelag', 'Teig ausrollen, belegen und im Ofen backen.', '00:55', 2);
+	
+INSERT IGNORE INTO REZEPT_ZUTAT (RezeptId, ZutatId, Menge)
+VALUES
+    (1, 19, 300.00),  -- Hackfleisch Rind (300g für Rezept 1)
+    (1, 38, 200.00),  -- Paprika rot (200g für Rezept 1)
+    (1, 6, 100.00),   -- Zwiebel (100g für Rezept 1)
+    (1, 2, 20.00),    -- Olivenöl (20ml für Rezept 1)
+    (1, 21, 5.00),    -- Pfeffer (5g für Rezept 1)
+    (1, 5, 5.00),     -- Salz (5g für Rezept 1)
+    (1, 6, 150.00),   -- Tomaten (150g für Rezept 1)
+    (1, 6, 10.00),
+    (2, 35, 200.00),  -- Zucchini (200g für Rezept 2)
+    (2, 58, 100.00),  -- Avocado (100g für Rezept 2)
+    (2, 2, 20.00),    -- Olivenöl (20ml für Rezept 2)
+    (2, 6, 10.00),    -- Knoblauch (10g für Rezept 2)
+    (2, 21, 5.00),    -- Pfeffer (5g für Rezept 2)
+    (2, 5, 5.00),     -- Salz (5g für Rezept 2)
+    (2, 9, 10.00),
+    (3, 55, 200.00),  -- Lachs
+	 (3, 66, 300.00),
+	 (3, 21, 5.00),    -- Pfeffer
+    (3, 5, 5.00), 	-- Salz
+    (4, 15, 0.24),  -- Eier (ca. 3 Stück, 0.24 kg)
+    (4, 14, 0.10),  -- Käse (ca. 100 g)
+    (4, 68, 0.15),
+    (4, 21, 5.00),    -- Pfeffer
+    (4, 5, 5.00),
+    (5, 31, 300.00),  -- Kichererbsen (gekocht) mit 300g
+    (5, 19, 300.00),  -- Hackfleisch Rind mit 300g (optional, falls in Rezept verwendet)
+    (5, 49, 500.00),  -- Reis mit 500g
+    (5, 39, 300.00),
+    (5, 21, 5.00),    -- Pfeffer
+    (5, 5, 5.00),		-- Salz
+    (6, 50, 1.00), -- Quinoa
+  	(6, 38, 1.00), -- Paprika (rot)
+  	(6, 35, 1.00), -- Zucchini
+  	(6, 48, 1.00),
+  	(6, 21, 5.00),    -- Pfeffer
+   (6, 5, 5.00),		-- Salz
+   (7, 39, 200.00),  -- Linsen (gekocht), 200g
+    (7, 28, 100.00),  -- Karotten (gekocht), 100g
+    (7, 38, 50.00),
+    (7, 21, 5.00),    -- Pfeffer
+   (7, 5, 5.00),		-- Salz
+   (8, 62, 1.00), -- Tofu (ZutatId = 62)
+  (8, 35, 1.50), -- Zucchini (ZutatId = 35)
+  (8, 38, 1.00),
+  (8, 21, 5.00),    -- Pfeffer
+   (8, 5, 5.00),		-- Salz
+   (9, 48, 200.00), -- Aubergine
+    (9, 6, 150.00),  -- Tomate
+    (9, 1, 250.00), 
+    (9, 21, 5.00),    -- Pfeffer
+   (9, 5, 5.00),		-- Salz
+    (10, 35, 2.00),  -- Zucchini (ZutatId 35), Menge 2.00
+    (10, 6, 3.00),   -- Tomate (ZutatId 6), Menge 3.00
+    (10, 14, 1.50),  -- Käse (ZutatId 14), Menge 1.50
+    (10, 24, 2.00),  -- Weizenmehl Type 405 (ZutatId 24), Menge 2.00
+    (10, 37, 1.00),  -- Käse (Gouda) (ZutatId 37), Menge 1.00
+    (10, 47, 1.50),
+    (10, 21, 5.00),    -- Pfeffer
+   (10, 5, 5.00),		-- Salz
+   (11, 66, 300.00),  -- Spinat (gekocht), ZutatId 66, Menge 300g
+    (11, 37, 250.00),
+    (11, 21, 5.00),    -- Pfeffer
+   (11, 5, 5.00),		-- Salz
+   (12, 15, 2.00),  -- Eier
+    (12, 6, 1.00),   -- Tomate
+    (12, 52, 1.00),
+    (12, 21, 5.00),    -- Pfeffer
+   (12, 5, 5.00),		-- Salz
+    (13, 69, 1.00), -- Thunfisch
+    (13, 58, 1.00), -- Avocado
+    (13, 26, 0.50), -- Gurke
+    (13, 23, 1.00), -- Eisbergsalat
+    (13, 9, 0.20),
+    (13, 21, 5.00),    -- Pfeffer
+   (13, 5, 5.00),		-- Salz
+   (14, 55, 200.00),  -- Lachs (gegrillt) 200g
+    (14, 40, 100.00),  -- Couscous 100g
+    (14, 38, 100.00),  -- Paprika rot 100g
+    (14, 35, 100.00),  -- Zucchini 100g
+    (14, 2, 20.00),    -- Olivenöl 20ml
+    (14, 21, 2.00),    -- Pfeffer 2g
+    (14, 5, 3.00),
+    (15, 56, 250.00), -- Rindfleisch
+    (15, 37, 100.00), -- Käse (Gouda)
+    (15, 5, 5.00),    -- Salz
+    (15, 21, 2.00),   -- Pfeffer
+    (15, 1, 200.00),
+    (16, 43, 2.00),   -- Schnitzel
+    (16, 52, 500.00),  -- Kartoffeln
+    (16, 5, 10.00),    -- Salz
+    (16, 21, 5.00),    -- Pfeffer
+    (16, 27, 50.00),
+    (17, 43, 200.00),  -- Schinken, Menge: 200g
+	(17, 24, 300.00),  -- Weizenmehl (Nudeln), Menge: 300g
+	(17, 37, 150.00),
+	(17, 5, 10.00),    -- Salz
+    (17, 21, 5.00),    -- Pfeffer
+    (18, 15, 4.00),  -- Eier
+    (18, 43, 2.00),  -- Speck
+    (18, 5, 0.10),   -- Salz
+    (18, 21, 0.05),
+    (19, 30, 200.00),  -- Hähnchenbrust 200g
+    (19, 49, 150.00),  -- Reis 150g
+    (19, 68, 100.00), 
+    (19, 5, 0.10),   -- Salz
+    (19, 21, 0.05),
+    (20, 1, 300.00),  -- Weizenmehl (ZutatId 1, Menge 300g)
+    (20, 2, 50.00),   -- Olivenöl (ZutatId 2, Menge 50ml)
+    (20, 5, 5.00),    -- Salz (ZutatId 5, Menge 5g)
+    (20, 6, 150.00),  -- Tomaten (ZutatId 6, Menge 150g)
+    (20, 14, 200.00), -- Käse (ZutatId 14, Menge 200g, hier Mozzarella)
+    (20, 19, 150.00),
+    (20, 5, 0.10),   -- Salz
+    (20, 21, 0.05);
+    
+    INSERT IGNORE INTO REZEPT_BESTELLUNG (
+	 	BestellungId
+		 ,RezeptId
+		 ,Menge
+	)
+	VALUES
+    (1, 1, 2),  -- Bestellung 1 enthält 2x "Gefüllte Paprika mit Hackfleisch"
+    (1, 5, 1),  -- Bestellung 1 enthält 1x "Kichererbsen-Curry mit Reis"
+    (2, 4, 2),  -- Bestellung 2 enthält 2x "Eier-Käse-Omelett mit Brokkoli"
+    (2, 7, 3),  -- Bestellung 2 enthält 3x "Vegane Linsensuppe"
+    (3, 8, 2),  -- Bestellung 3 enthält 2x "Tofu-Gemüse-Pfanne"
+    (3, 9, 1),  -- Bestellung 3 enthält 1x "Spaghetti mit Tomaten und Aubergine"
+    (4, 10, 1), -- Bestellung 4 enthält 1x "Gemüse-Lasagne"
+    (5, 6, 2),  -- Bestellung 5 enthält 2x "Ofengemüse mit Quinoa"
+    (6, 2, 1),  -- Bestellung 6 enthält 1x "Zucchini-Spaghetti mit Avocado-Pesto"
+    (6, 14, 1), -- Bestellung 6 enthält 1x "Lachs-Couscous-Bowl"
+    (7, 13, 2), -- Bestellung 7 enthält 2x "Thunfischsalat mit Avocado"
+    (8, 3, 1),  -- Bestellung 8 enthält 1x "Gegrillter Lachs auf Spinatbett"
+    (8, 16, 2), -- Bestellung 8 enthält 2x "Schnitzel mit Kartoffelsalat"
+    (9, 11, 1), -- Bestellung 9 enthält 1x "Spinat-Feta-Strudel"
+    (9, 12, 2), -- Bestellung 9 enthält 2x "Rührei mit Tomaten und Vollkornbrot"
+    (10, 15, 3), -- Bestellung 10 enthält 3x "Burger mit Rindfleisch und Käse"
+    (11, 19, 1), -- Bestellung 11 enthält 1x "Hähnchenbrust mit Reis und Brokkoli"
+    (12, 18, 1), -- Bestellung 12 enthält 1x "Frühstücks-Rührei mit Schweinebraten"
+    (13, 5, 1),  -- Bestellung 13 enthält 1x "Kichererbsen-Curry mit Reis"
+    (14, 17, 2), -- Bestellung 14 enthält 2x "Nudelauflauf mit Schweinebraten"
+    (15, 20, 1), -- Bestellung 15 enthält 1x "Pizza mit SaHackfleisch lami und Mozzarella"
+    (16, 6, 2),  -- Bestellung 16 enthält 2x "Ofengemüse mit Quinoa"
+    (17, 1, 2),  -- Bestellung 17 enthält 2x "Gefüllte Paprika mit Hackfleisch"
+    (18, 10, 1), -- Bestellung 18 enthält 1x "Gemüse-Lasagne"
+    (19, 9, 2),  -- Bestellung 19 enthält 2x "Spaghetti mit Tomaten und Aubergine"
+    (20, 2, 1),  -- Bestellung 20 enthält 1x "Zucchini-Spaghetti mit Avocado-Pesto"
+    (21, 14, 1), -- Bestellung 21 enthält 1x "Lachs-Couscous-Bowl"
+    (22, 3, 1),  -- Bestellung 22 enthält 1x "Gegrillter Lachs auf Spinatbett"
+    (23, 4, 1),  -- Bestellung 23 enthält 1x "Eier-Käse-Omelett mit Brokkoli"
+    (24, 5, 1),  -- Bestellung 24 enthält 1x "Kichererbsen-Curry mit Reis"
+    (25, 19, 2), -- Bestellung 25 enthält 2x "Hähnchenbrust mit Reis und Brokkoli"
+    (26, 16, 1), -- Bestellung 26 enthält 1x "Schnitzel mit Kartoffelsalat"
+    (27, 13, 1), -- Bestellung 27 enthält 1x "Thunfischsalat mit Avocado"
+    (28, 7, 2),  -- Bestellung 28 enthält 2x "Vegane Linsensuppe"
+    (29, 8, 2),  -- Bestellung 29 enthält 2x "Tofu-Gemüse-Pfanne"
+    (30, 12, 3), -- Bestellung 30 enthält 3x "Rührei mit Tomaten und Vollkornbrot"
+    (31, 6, 2),  -- Bestellung 31 enthält 2x "Ofengemüse mit Quinoa"
+    (32, 14, 1); -- Bestellung 32 enthält 1x "Lachs-Couscous-Bowl"
