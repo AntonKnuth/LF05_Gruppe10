@@ -527,7 +527,6 @@ VALUES
 	,(8, 66)
 	,(8, 67)
 	,(8, 68);
-<<<<<<< HEAD
 	
 INSERT IGNORE INTO rezept (
 	RezeptId
@@ -720,5 +719,3 @@ VALUES
     (30, 12, 3), -- Bestellung 30 enthält 3x "Rührei mit Tomaten und Vollkornbrot"
     (31, 6, 2),  -- Bestellung 31 enthält 2x "Ofengemüse mit Quinoa"
     (32, 14, 1); -- Bestellung 32 enthält 1x "Lachs-Couscous-Bowl"
-=======
->>>>>>> f9b985132a02f3da0b19bdfdc91a218083df075f
