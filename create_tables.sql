@@ -64,14 +64,15 @@ CREATE TABLE ZUTAT(
 	, LieferantId INT
 	, NaehrstoffangabeId INT
 	, Bezeichnung VARCHAR(40)
-	, Bestand DOUBLE(4,2)
-	, Nettopreis DOUBLE(5,2)
+	, Bestand DOUBLE(10,2)
+	, Nettopreis DOUBLE(10,2)
 	, CO2AequivalentProKg DOUBLE(10,4)
 );
 	
 CREATE TABLE ZUTAT_BESCHRAENKUNG (
 	BeschraenkungId INT NOT NULL
 	, ZutatId INT NOT NULL
+	, Beschreibung VARCHAR (50)
 	, PRIMARY KEY (BeschraenkungId, ZutatId)
 );
 	
