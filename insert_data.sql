@@ -39,10 +39,10 @@ INSERT IGNORE INTO lieferant(
 	email
 )
 VALUES
-(9, 'BioFarm GmbH', '030-1234567', 'info@biofarm.de'),
-(10, 'FruchtExpress AG', '040-9876543', 'kontakt@fruchtexpress.de'),
-(2, 'GreenFoods KG.', '0221-5554321', 'service@greenfoods.de'),
-(1, 'BioMasters GmbH', '069-1122334', 'support@biomasters.de');
+(9, 'BioFarm GmbH', '0301234567', 'info@biofarm.de'),
+(10, 'FruchtExpress AG', '0409876543', 'kontakt@fruchtexpress.de'),
+(2, 'GreenFoods KG.', '02215554321', 'service@greenfoods.de'),
+(1, 'BioMasters GmbH', '061122334', 'support@biomasters.de');
 
 INSERT IGNORE INTO naehrstoffangabe (
 	kalorien_pro_100g,
