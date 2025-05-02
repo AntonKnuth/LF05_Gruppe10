@@ -77,14 +77,14 @@ CREATE TABLE lieferant (
 
 CREATE TABLE naehrstoffangabe (
 	naehrstoffangabe_id INT PRIMARY KEY AUTO_INCREMENT,
-	kalorien_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	proteine_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	kohlenhydrate_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	zucker_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	fett_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	gesaettigte_fettsaeuren_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	ballaststoffe_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL,
-	natrium_pro_100g DECIMAL(6,3) UNSIGNED NOT NULL
+	kalorien_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	proteine_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	kohlenhydrate_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	zucker_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	fett_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	gesaettigte_fettsaeuren_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	ballaststoffe_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL,
+	natrium_pro_100g DECIMAL(9,3) UNSIGNED NOT NULL
 );
 
 CREATE TABLE zutat (
@@ -92,15 +92,15 @@ CREATE TABLE zutat (
 	lieferant_id INT, -- falls ein lieferant weg geht, muss man zutat nicht löschen
 	naehrstoffangabe_id INT UNIQUE, -- kann man auch NOT NULL machen. Falls wir aber schon produkte hinzufügen wollen, wo noch keine angaben wissen, würde ich das nullable lassen.
 	bezeichnung VARCHAR(100) NOT NULL UNIQUE,
-	bestand DECIMAL(6,3) UNSIGNED  NOT NULL DEFAULT 0.00 COMMENT 'Kilogramm oder Liter',
-	nettopreis DECIMAL(6,2) UNSIGNED  NOT NULL DEFAULT 0.00 COMMENT 'Euro',
-	co2_aequivalent_pro_kg DECIMAL(3,2) UNSIGNED DEFAULT NULL
+	bestand DECIMAL(9,3) UNSIGNED  NOT NULL DEFAULT 0.00 COMMENT 'Kilogramm oder Liter',
+	nettopreis DECIMAL(8,2) UNSIGNED  NOT NULL DEFAULT 0.00 COMMENT 'Euro',
+	co2_aequivalent_pro_kg DECIMAL(5,2) UNSIGNED DEFAULT NULL
 );
 
 CREATE TABLE rezept_zutat (
 	rezept_id INT NOT NULL,
 	zutat_id INT NOT NULL,
-	menge DECIMAL(5,2) UNSIGNED NOT NULL,
+	menge DECIMAL(7,2) UNSIGNED NOT NULL,
 	einheit ENUM('g', 'kg', 'ml', 'l', 'Stk') NOT NULL DEFAULT 'g', -- TL, EL, Prise, Messerspitze, Tasse, Cup, Becher, noch hinzufügen?
 	PRIMARY KEY (rezept_id, zutat_id)
 );
