@@ -18,5 +18,5 @@ WHERE lieferanten_zutaten.anzahl_zutaten = (
         FROM lieferant l
         LEFT JOIN zutat z ON z.lieferant_id = l.lieferant_id
         GROUP BY l.lieferant_id
-    ) AS maxwerte
+    ) AS groesste_zutaten_auswahl
 );
