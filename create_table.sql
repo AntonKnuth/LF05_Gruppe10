@@ -121,10 +121,10 @@ CREATE TABLE ernaehrungskategorie (
 	ernaehrungskategorie_typ VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE zutat_ernaehrungskategorie (
+CREATE TABLE rezept_ernaehrungskategorie (
 	ernaehrungskategorie_id INT,
-	zutat_id INT,
-	PRIMARY KEY (ernaehrungskategorie_id, zutat_id)
+	rezept_id INT,
+	PRIMARY KEY (ernaehrungskategorie_id, rezept_id)
 );
 
 
@@ -171,11 +171,11 @@ ALTER TABLE zutat_beschraenkung
 	ADD CONSTRAINT fk_zutat_beschraenkung_zutat
 	FOREIGN KEY (zutat_id) REFERENCES zutat (zutat_id);
 
-ALTER TABLE zutat_ernaehrungskategorie
-	ADD CONSTRAINT fk_zutat_ernaehrungskategorie_kategorie
+ALTER TABLE rezept_ernaehrungskategorie
+	ADD CONSTRAINT fk_rezept_ernaehrungskategorie_kategorie
 	FOREIGN KEY (ernaehrungskategorie_id) REFERENCES ernaehrungskategorie (ernaehrungskategorie_id),
-	ADD CONSTRAINT fk_zutat_ernaehrungskategorie_zutat
-	FOREIGN KEY (zutat_id) REFERENCES zutat (zutat_id);
+	ADD CONSTRAINT fk_rezept_ernaehrungskategorie_zutat
+	FOREIGN KEY (rezept_id) REFERENCES rezept (rezept_id);
 	
 
 CREATE INDEX idx_adresse_ort_id ON adresse (ort_id);
