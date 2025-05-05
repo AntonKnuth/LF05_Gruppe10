@@ -524,7 +524,7 @@ VALUES
 	,('Nudelauflauf mit Schweinebraten', 'Überbackene Nudeln mit Fleisch und Gemüse', 'Nudeln vorkochen, mit Schweinebraten und Käse überbacken.', 45, 3)
 	,('Frühstücks-Rührei mit Schweinebraten', 'Deftiges Frühstück mit Ei und Fleisch', 'Schweinebraten in kleine Scheiben schneiden und anbraten, Eier zugeben und stocken lassen.', 15, 1)
 	,('Hähnchenbrust mit Reis und Brokkoli', 'Proteinreiche Hauptmahlzeit', 'Hähnchen würzen und braten, mit Gemüse und Reis servieren.', 40, 2)
-	,('Pizza mit SaHackfleisch lami und Mozzarella', 'Klassische Pizza mit Fleischbelag', 'Teig ausrollen, belegen und im Ofen backen.', 55, 2);
+	,('Pizza mit Hackfleisch und Mozzarella', 'Klassische Pizza mit Fleischbelag', 'Teig ausrollen, belegen und im Ofen backen.', 55, 2);
 	
 INSERT IGNORE INTO rezept_zutat (
 	rezept_id,
